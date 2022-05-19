@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.example.mywidget">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.alhaj.mywidget">
 
-    <uses-permission android:name="android.permission.SET_ALARM"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning">
+            android:theme="@style/AppTheme">
+
         <receiver
-                android:name=".NewAppWidget">
+                android:name="com.alhaj.mywidget.NewAppWidget"
+                android:exported="false">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
             <meta-data
                     android:name="android.appwidget.provider"
-                    android:resource="@xml/new_app_widget_info"/>
+                    android:resource="@xml/new_app_widget_info" />
         </receiver>
 
-        <activity android:name=".MainActivity">
+        <activity
+                android:name="com.alhaj.mywidget.MainActivity"
+                android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".NewAppWidget$UpdateService"/>
-        <receiver android:name=".NewAppWidget$MyBroadcast"
-        android:enabled="true"/>
+
+
+        <receiver
+                android:name="com.alhaj.mywidget.reciever.MyBroadcast"
+                android:enabled="true" />
 
     </application>
 

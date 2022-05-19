@@ -1,4 +1,4 @@
-package com.example.mywidget
+package com.alhaj.mywidget
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

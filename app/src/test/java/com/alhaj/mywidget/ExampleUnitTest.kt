@@ -1,4 +1,4 @@
-package com.example.mywidget
+package com.alhaj.mywidget
 
 import org.junit.Test
 
